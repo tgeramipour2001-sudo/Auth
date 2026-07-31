@@ -15,6 +15,11 @@ class LoginSuccess extends LoginState {
   const LoginSuccess(super.login);
 }
 
+class RegisterSuccess extends LoginState{
+  const RegisterSuccess(super.login);
+
+}
+
 class LoginLoading extends LoginState {
   const LoginLoading(super.login);
 }

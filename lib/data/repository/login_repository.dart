@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:login/common/http_client.dart';
 import 'package:login/data/login.dart';
-import 'package:login/data/source/login_data_source.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:login/data/register.dart';
+import 'package:login/data/repository/i_login_repository.dart';
+import 'package:login/data/save_token.dart';
+import 'package:login/data/source/i_login_data_source.dart' show ILoginDataSource;
 
-
-final LoginRepository loginRepository = LoginRepository(dataSource: LoginRemoteDataSource(httpClient: httpClient));
-
-abstract class ILoginRepository {
-  Future<void> login(String username, String password);
-  Future<void> register(String email, String password);
-}
-
-class LoginRepository implements ILoginRepository {
+class LoginRepository with SaveToken implements ILoginRepository {
   static final ValueNotifier<LoginInfo?> loginChangeNotifier = ValueNotifier(
     null,
   );
@@ -23,39 +16,23 @@ class LoginRepository implements ILoginRepository {
   @override
   Future<void> login(String username, String password) async {
     final LoginInfo loginInfo = await dataSource.login(username, password);
-    _persistLoginTokens(loginInfo);
+    persistLoginTokens(loginInfo);
+    loadAuthInfo(loginChangeNotifier);
   }
 
   @override
   Future<void> register(String email, String password) async {
-    final LoginInfo loginInfo =  await dataSource.register(email, password);
-    _persistLoginTokens(loginInfo);
+    final RegisterInfo registerInfo = await dataSource.register(
+      email,
+      password,
+    );
+    final LoginInfo loginInfo = LoginInfo(
+      accessToken: registerInfo.accessToken,
+      refreshToken: "",
+    );
+    persistLoginTokens(loginInfo);
+    loadAuthInfo(loginChangeNotifier);
   }
 
-  //save token
-  Future<void> _persistLoginTokens(LoginInfo loginInfo) async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-
-    sharedPreferences.setString("access_token", loginInfo.accessToken);
-    sharedPreferences.setString("refresh_token", loginInfo.refreshToken);
-    loadAuthInfo();
-  }
-
-  Future<void> loadAuthInfo() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-
-    final String accessToken =
-        sharedPreferences.getString("access_token") ?? '';
-    final String refreshToken =
-        sharedPreferences.getString("refresh_token") ?? '';
-
-    if (accessToken.isNotEmpty && refreshToken.isNotEmpty) {
-      loginChangeNotifier.value = LoginInfo(
-        accessToken: accessToken,
-        refreshToken: refreshToken,
-      );
-    }
-  }
+ 
 }
