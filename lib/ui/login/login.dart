@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/data/repository/i_login_repository.dart';
 import 'package:login/ui/home.dart';
 import 'package:login/ui/login/bloc/login_bloc.dart';
-import 'package:login/ui/login/paasword_tetx_field.dart';
-import 'package:login/ui/login/usename_text-field.dart';
+import 'package:login/ui/register/register.dart';
+import 'package:login/widget/paasword_tetx_field.dart';
+import 'package:login/widget/usename_text-field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
       //backgroundColor: theme.colorScheme.surface.withOpacity(0.9999),
       body: BlocProvider<LoginBloc>(
         create: (context) {
-          final bloc = LoginBloc(repository: loginRepository, login: true);
+          final bloc = LoginBloc(repository: loginRepository);
           bloc.add(LoginStarted());
           return bloc;
         },
@@ -42,6 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.of(
                 context,
               ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+            } else if (state is LoginModeChanged) {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => RegisterScreen()));
             }
           },
           child: SingleChildScrollView(
@@ -70,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               current is LoginInitial,
                           builder: (context, state) {
                             return Text(
-                              state.login ? 'Login' : 'Register',
+                              'Login',
                               style: theme.textTheme.headlineLarge,
                             );
                           },
@@ -81,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         BlocBuilder<LoginBloc, LoginState>(
                           builder: (context, state) {
                             return Text(
-                              state.login ? 'Username' : 'Email',
+                              'Username',
                               style: theme.textTheme.titleMedium,
                             );
                           },
@@ -107,44 +112,32 @@ class _LoginScreenState extends State<LoginScreen> {
                               children: [
                                 if (state is LoginError)
                                   Text(state.exception.message.toString()),
+
                                 //forget password button
-                                if (state.login && state is LoginError)
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      'Forget Password?',
-                                      style: theme.textTheme.titleMedium,
-                                    ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Forget Password?',
+                                    style: theme.textTheme.titleMedium,
                                   ),
+                                ),
                                 SizedBox(height: 20),
                                 //sign in button
                                 ElevatedButton(
                                   onPressed: () {
-                                    state.login
-                                        ? context.read<LoginBloc>().add(
-                                            LoginButtonClicked(
-                                              username:
-                                                  _usernameController.text,
-                                              password:
-                                                  _passwordController.text,
-                                            ),
-                                          )
-                                        : context.read<LoginBloc>().add(
-                                            RegisterButtonClicked(
-                                              Emial: _usernameController.text,
-                                              password:
-                                                  _passwordController.text,
-                                            ),
-                                          );
+                                    context.read<LoginBloc>().add(
+                                      LoginButtonClicked(
+                                        username: _usernameController.text,
+                                        password: _passwordController.text,
+                                      ),
+                                    );
                                   },
                                   child: state is LoginLoading
                                       ? Center(
                                           child: CircularProgressIndicator(),
                                         )
                                       : Text(
-                                          state is LoginInitial
-                                              ? 'Sign in'
-                                              : 'Sign up',
+                                          'Sign in',
                                           style: theme.textTheme.headlineMedium,
                                         ),
                                 ),
@@ -162,9 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  state.login
-                                      ? 'Dont have an account yet?'
-                                      : 'Have an account?',
+                                  'Dont have an account yet?',
                                   style: theme.textTheme.titleSmall,
                                 ),
                                 SizedBox(width: 12),
@@ -181,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           current is LoginInitial,
                                       builder: (context, state) {
                                         return Text(
-                                          state.login ? 'Register' : 'Login',
+                                          'Register',
                                           style: theme.textTheme.titleSmall,
                                         );
                                       },

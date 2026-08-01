@@ -13,13 +13,6 @@ class LoginButtonClicked extends LoginEvent{
 
 }
 
-class RegisterButtonClicked extends LoginEvent{
-  final String Emial;
-  final String password;
-
-  RegisterButtonClicked({required this.Emial, required this.password});
-}
-
 class LoginModeChangedIsClicked extends LoginEvent{
 
 }

@@ -11,43 +11,24 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState>
     with HttpResponseValidator, PasswordValidatorRegister {
   final ILoginRepository repository;
-  bool login;
-  LoginBloc({required this.repository, this.login = true})
-    : super(LoginInitial(login)) {
+
+  LoginBloc({required this.repository}) : super(LoginInitial()) {
     on<LoginEvent>((event, emit) async {
       if (event is LoginButtonClicked) {
-        emit(LoginLoading(login));
+        emit(LoginLoading());
 
         try {
           final result = await repository.login(event.username, event.password);
-          emit(LoginSuccess(login));
+          emit(LoginSuccess());
         } catch (e) {
-          emit(LoginError(AppExeception(), login));
+          emit(LoginError(AppExeception()));
         }
 
         try {} catch (e) {
-          emit(LoginError(AppExeception(), login));
-        }
-      } else if (event is RegisterButtonClicked) {
-        final validatedResult = validatePasswordRegister(event.password);
-
-        if (validatedResult) {
-          final result = await repository.register(event.Emial, event.password);
-          emit(LoginSuccess(login));
-        } else {
-          emit(
-            LoginError(
-              AppExeception(
-                message:
-                    'The password must be at least 8 characters long (using non-Persian characters) and contain both uppercase and lowercase letters.',
-              ),
-              login,
-            ),
-          );
+          emit(LoginError(AppExeception()));
         }
       } else if (event is LoginModeChangedIsClicked) {
-        login = !login;
-        emit(LoginInitial(login));
+        emit(LoginModeChanged());
       }
     });
   }
