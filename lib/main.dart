@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/ui/customer/customer.dart';
 import 'package:login/ui/login/login.dart';
 
 void main() {
@@ -46,9 +47,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
+        colorScheme: ColorScheme.light(primary: secondaryColor)
         //colorScheme: ColorScheme.light(surface: Color(0xff5882C1)),
       ),
-      home: const LoginScreen(),
+      home: const CustomerScreen(),
     );
   }
 }

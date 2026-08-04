@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/data/repository/i_login_repository.dart';
+import 'package:login/ui/customer/customer.dart';
 import 'package:login/ui/home.dart';
 import 'package:login/ui/login/bloc/login_bloc.dart';
 import 'package:login/ui/register/register.dart';
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             if (state is LoginSuccess) {
               Navigator.of(
                 context,
-              ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+              ).push(MaterialPageRoute(builder: (context) => CustomerScreen()));
             } else if (state is LoginModeChanged) {
               Navigator.of(
                 context,
