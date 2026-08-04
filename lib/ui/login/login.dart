@@ -114,12 +114,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Text(state.exception.message.toString()),
 
                                 //forget password button
-                                TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Forget Password?',
-                                    style: theme.textTheme.titleMedium,
-                                  ),
+                                BlocBuilder<LoginBloc, LoginState>(
+                                  builder: (context, state) {
+                                    if (state is LoginError) {
+                                      return TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          'Forget Password?',
+                                          style: theme.textTheme.titleMedium,
+                                        ),
+                                      );
+                                    } else {
+                                      return SizedBox();
+                                    }
+                                  },
                                 ),
                                 SizedBox(height: 20),
                                 //sign in button

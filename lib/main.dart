@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:login/ui/customer/customer.dart';
 import 'package:login/ui/login/login.dart';
 
 void main() {

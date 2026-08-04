@@ -42,7 +42,7 @@ Response fakeResponse(int value) {
 }
 
 int statusCode() {
-  List<int> list = [200];
+  List<int> list = [200, 403];
   return list[Random().nextInt(list.length)];
 }
 
