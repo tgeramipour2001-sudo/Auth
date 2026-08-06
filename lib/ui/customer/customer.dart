@@ -44,7 +44,18 @@ class CustomerScreen extends StatelessWidget {
                       children: [
                         //search box
                         SearchBox(),
-                        RefreshButton(),
+                        //refresh button
+                        BlocBuilder<CustomerBloc, CustomerState>(
+                          builder: (context, state) {
+                            return RefreshButton(
+                              onPressed: () {
+                                context.read<CustomerBloc>().add(
+                                  CustomeRefresh(),
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -139,7 +150,10 @@ class CustomerScreen extends StatelessWidget {
                           },
                         );
                       } else if (state is CustomerLoading) {
-                        return Center(child: CircularProgressIndicator());
+                        return SizedBox(
+                          height: MediaQuery.sizeOf(context).height,
+                          child: Center(child: CircularProgressIndicator(),),
+                        );
                       } else if (state is CustomerError) {
                         return Text(state.exception.toString());
                       } else {

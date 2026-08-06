@@ -13,6 +13,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     on<CustomerEvent>((event, emit) async {
       if (event is CustomerStarted || event is CustomeRefresh) {
         emit(CustomerLoading());
+        await Future.delayed(Duration(seconds: 2));
         try {
           final customers = await customerRepository.getAll();
           emit(CustomerSuccess(customers: customers));
