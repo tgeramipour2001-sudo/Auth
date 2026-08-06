@@ -1,4 +1,5 @@
-import 'dart:math';
+
+import 'package:dio/dio.dart';
 
 final List<Map<String, dynamic>> customers = [
   {
@@ -83,6 +84,10 @@ final List<Map<String, dynamic>> customers = [
   },
 ];
 
- Map<String, dynamic> CustomerFakeResponse(){
-  return customers[Random().nextInt(customers.length)];
+Response CustomerFakeResponse() {
+  return Response(
+    requestOptions: RequestOptions(path: '/customers'),
+    statusCode: 200,
+    data: customers,
+  );
 }
