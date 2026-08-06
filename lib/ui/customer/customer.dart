@@ -1,10 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/data/customer.dart';
 import 'package:login/data/repository/customer_repository.dart';
 import 'package:login/ui/customer/bloc/customer_bloc.dart';
-import 'package:login/widget/search_bar.dart';
+import 'package:login/ui/customer/widgets/BalanceBox.dart';
+import 'package:login/ui/customer/widgets/CustomerAddressBox.dart';
+import 'package:login/ui/customer/widgets/CustomerNameBox.dart';
+import 'package:login/ui/customer/widgets/RefreshButton.dart';
+import 'package:login/ui/customer/widgets/SearchBox.dart';
 
 class CustomerScreen extends StatelessWidget {
   const CustomerScreen({super.key});
@@ -39,37 +42,9 @@ class CustomerScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width - 100,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [BoxShadow(blurRadius: 2)],
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(child: SearchTextField()),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: Icon(
-                                  CupertinoIcons.search,
-                                  size: 20,
-                                  color: Colors.black38,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            CupertinoIcons.refresh_bold,
-                            color: Colors.white70,
-                          ),
-                        ),
+                        //search box
+                        SearchBox(),
+                        RefreshButton(),
                       ],
                     ),
                   ),
@@ -103,41 +78,17 @@ class CustomerScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     //name
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            customer.name,
-                                            style: theme
-                                                .textTheme
-                                                .headlineMedium!
-                                                .apply(color: containerColor),
-                                          ),
-                                        ],
-                                      ),
+                                    CustomerNameBox(
+                                      customer: customer,
+                                      theme: theme,
+                                      containerColor: containerColor,
                                     ),
 
                                     //address
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 8,
-                                        right: 8,
-                                        bottom: 6,
-                                      ),
-                                      child: Expanded(
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              customer.address,
-                                              style:
-                                                  theme.textTheme.titleMedium,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                    CustomerAddressBox(
+                                      customer: customer,
+                                      theme: theme,
                                     ),
-
                                     Divider(
                                       color: containerColor,
                                       indent: 2,
@@ -146,40 +97,39 @@ class CustomerScreen extends StatelessWidget {
 
                                     //balances and last order
                                     Padding(
-                                      padding: const EdgeInsets.fromLTRB(8, 5, 8, 5),
-                                      child: Expanded(
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              children: [
-                                                Text('Credit Balance', style: theme.textTheme.titleSmall,),
-                                                Text(
-                                                  customer.creditBalance.toString(),style: theme.textTheme.titleSmall
-                                                ),
-                                              ],
-                                            ),
-                                        
-                                                                             
-                                            Column(
-                                              children: [
-                                                Text('Account Balance',style: theme.textTheme.titleSmall),
-                                                Text(
-                                                  customer.accountBalance.toString(),style: theme.textTheme.titleSmall
-                                                ),
-                                              ],
-                                            ),
-                                        
-                                            Column(
-                                              children: [
-                                                Text('Last Order Date',style: theme.textTheme.titleSmall),
-                                                Text(
-                                                  customer.lastOrderDate.toString(),style: theme.textTheme.titleSmall
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                                      padding: const EdgeInsets.fromLTRB(
+                                        8,
+                                        5,
+                                        8,
+                                        5,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          BalanceBox(
+                                            theme: theme,
+                                            customer: customer,
+                                            title: 'Credite Balance',
+                                            detail: customer.creditBalance
+                                                .toString(),
+                                          ),
+
+                                          BalanceBox(
+                                            theme: theme,
+                                            customer: customer,
+                                            title: 'Account Balance',
+                                            detail: customer.accountBalance
+                                                .toString(),
+                                          ),
+
+                                          BalanceBox(
+                                            theme: theme,
+                                            customer: customer,
+                                            title: 'Last Order Date',
+                                            detail: customer.lastOrderDate,
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],

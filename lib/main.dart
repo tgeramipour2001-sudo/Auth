@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           titleMedium: TextStyle(
             color: primaryTextColor,
             fontWeight: FontWeight.normal,
-            fontSize: 18,
+            fontSize: 16,
           ),
         ),
 

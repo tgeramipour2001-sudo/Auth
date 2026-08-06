@@ -11,7 +11,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   final ICustomerRepository customerRepository;
   CustomerBloc({required this.customerRepository}) : super(CustomerLoading()) {
     on<CustomerEvent>((event, emit) async {
-      if (event is CustomerStarted) {
+      if (event is CustomerStarted || event is CustomeRefresh) {
         emit(CustomerLoading());
         try {
           final customers = await customerRepository.getAll();
