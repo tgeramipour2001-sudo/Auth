@@ -13,7 +13,8 @@ class RefreshButton extends StatelessWidget {
     return IconButton(
       onPressed: onPressed,
       icon: Icon(
-        CupertinoIcons.refresh_bold,
+        CupertinoIcons.refresh_thin,
+        size: 30,
         color: Colors.white70,
       ),
     );

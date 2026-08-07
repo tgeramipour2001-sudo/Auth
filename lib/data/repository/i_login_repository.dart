@@ -8,4 +8,5 @@ final LoginRepository loginRepository = LoginRepository(
 
 abstract class ILoginRepository {
   Future<void> login(String username, String password);
+   Future<void> signOut();
 }

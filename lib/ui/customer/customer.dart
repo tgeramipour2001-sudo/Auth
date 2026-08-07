@@ -18,6 +18,10 @@ class CustomerScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: theme.colorScheme.primary,
+        toolbarHeight: 0,
+      ),
       body: BlocProvider<CustomerBloc>(
         create: (context) {
           final bloc = CustomerBloc(customerRepository: customerRepository);
@@ -33,7 +37,7 @@ class CustomerScreen extends StatelessWidget {
                 children: [
                   Container(
                     width: MediaQuery.sizeOf(context).width,
-                    height: 60,
+                    height: 65,
                     decoration: BoxDecoration(
                       color: theme.colorScheme.primary,
                       boxShadow: [BoxShadow(blurRadius: 5)],
@@ -152,7 +156,7 @@ class CustomerScreen extends StatelessWidget {
                       } else if (state is CustomerLoading) {
                         return SizedBox(
                           height: MediaQuery.sizeOf(context).height,
-                          child: Center(child: CircularProgressIndicator(),),
+                          child: Center(child: CircularProgressIndicator()),
                         );
                       } else if (state is CustomerError) {
                         return Text(state.exception.toString());
@@ -161,6 +165,7 @@ class CustomerScreen extends StatelessWidget {
                       }
                     },
                   ),
+                  SizedBox(height: 60),
                 ],
               ),
             ),

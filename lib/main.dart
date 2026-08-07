@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:login/ui/customer/customer.dart';
+import 'package:login/widget/bottom_navigation.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Color(0xff003465),
+    statusBarBrightness: Brightness.dark,
+    systemNavigationBarColor:  Color(0xff003465),
+    systemNavigationBarIconBrightness: Brightness.dark
+  ));
   runApp(const MyApp());
 }
 
@@ -37,6 +45,8 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.normal,
             fontSize: 16,
           ),
+
+          
         ),
 
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -46,10 +56,22 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
-        colorScheme: ColorScheme.light(primary: secondaryColor, secondary: primaryTextColor)
+        colorScheme: ColorScheme.light(
+          primary: secondaryColor,
+          secondary: primaryTextColor,
+        ),
         //colorScheme: ColorScheme.light(surface: Color(0xff5882C1)),
       ),
-      home: const CustomerScreen(),
+      home: Stack(
+        children: [
+          Positioned.fill(child: CustomerScreen()),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            left: 0,
+            child: BottomNavigation()),
+        ],
+      ),
     );
   }
 }

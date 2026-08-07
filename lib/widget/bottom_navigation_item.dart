@@ -1,0 +1,36 @@
+
+import 'package:flutter/material.dart';
+
+class BottomNavigationItem extends StatelessWidget {
+  final String iconFileName;
+  final String title;
+  final String activeIconFileName;
+  const BottomNavigationItem({
+    super.key,
+    required this.iconFileName,
+    required this.title,
+    required this.activeIconFileName,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: Image.asset(
+            'assets/img/$iconFileName',
+            width: 70,
+           
+          ),
+        ),
+        //SizedBox(height: 0),
+        Text(
+          title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleSmall!.copyWith(color: Colors.white70, fontSize: 12),
+        ),
+      ],
+    );
+  }
+}
