@@ -22,7 +22,7 @@ class BottomNavigation extends StatelessWidget {
         boxShadow: [BoxShadow(blurRadius: 3)],
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 8, bottom: 12),
+        padding: const EdgeInsets.only(top: 8, bottom: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,

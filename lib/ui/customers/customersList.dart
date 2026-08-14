@@ -8,6 +8,7 @@ import 'package:login/ui/customers/widgets/CustomerAddressBox.dart';
 import 'package:login/ui/customers/widgets/CustomerNameBox.dart';
 import 'package:login/ui/customers/widgets/RefreshButton.dart';
 import 'package:login/ui/customers/widgets/SearchBox.dart';
+import 'package:login/ui/customers/widgets/customer.dart';
 
 // ignore: must_be_immutable
 class CustomersListScreen extends StatelessWidget {
@@ -32,6 +33,7 @@ class CustomersListScreen extends StatelessWidget {
         },
 
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: SafeArea(
             child: Column(
               children: [
@@ -64,12 +66,17 @@ class CustomersListScreen extends StatelessWidget {
                         builder: (context, state) {
                           return RefreshButton(
                             onPressed: () {
-                              if(searchCustomerController != ''){context.read<CustomerBloc>().add(
-                                CustomerFilter(SearchedField: searchCustomerController.text),
-                              );}else{
-                              context.read<CustomerBloc>().add(
-                                CustomerStarted(),
-                              );
+                              if (searchCustomerController != '') {
+                                context.read<CustomerBloc>().add(
+                                  CustomerFilter(
+                                    SearchedField:
+                                        searchCustomerController.text,
+                                  ),
+                                );
+                              } else {
+                                context.read<CustomerBloc>().add(
+                                  CustomerStarted(),
+                                );
                               }
                             },
                           );
@@ -90,72 +97,84 @@ class CustomersListScreen extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.only(
                               top: 10,
-                              bottom: 3,
-                              left: 6,
-                              right: 6,
+
+                              left: 8,
+                              right: 8,
                             ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: Color(0xff88A9DC),
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: containerColor,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                children: [
-                                  //name
-                                  CustomerNameBox(
-                                    customer: customer,
-                                    containerColor: containerColor,
-                                  ),
-
-                                  //address
-                                  CustomerAddressBox(customer: customer),
-                                  Divider(
-                                    color: containerColor,
-                                    indent: 2,
-                                    endIndent: 2,
-                                  ),
-
-                                  //balances and last order
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      8,
-                                      5,
-                                      8,
-                                      5,
+                            child: InkWell(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  backgroundColor: Colors.white,
+                                  context: context,
+                                  builder: (context) {
+                                   return CustomerScreen();
+                                   
+                                  },
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: Color(0xff88A9DC),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4,
+                                      color: containerColor,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        BalanceBox(
-                                          customer: customer,
-                                          title: 'Credite Balance',
-                                          detail: customer.creditBalance
-                                              .toString(),
-                                        ),
-
-                                        BalanceBox(
-                                          customer: customer,
-                                          title: 'Account Balance',
-                                          detail: customer.accountBalance
-                                              .toString(),
-                                        ),
-
-                                        BalanceBox(
-                                          customer: customer,
-                                          title: 'Last Order Date',
-                                          detail: customer.lastOrderDate,
-                                        ),
-                                      ],
+                                  ],
+                                ),
+                                child: Column(
+                                  children: [
+                                    //name
+                                    CustomerNameBox(
+                                      customer: customer,
+                                      containerColor: containerColor,
                                     ),
-                                  ),
-                                ],
+
+                                    //address
+                                    CustomerAddressBox(customer: customer),
+                                    Divider(
+                                      color: containerColor,
+                                      indent: 2,
+                                      endIndent: 2,
+                                    ),
+
+                                    //balances and last order
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        8,
+                                        5,
+                                        8,
+                                        5,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          BalanceBox(
+                                            customer: customer,
+                                            title: 'Credite Balance',
+                                            detail: customer.creditBalance
+                                                .toString(),
+                                          ),
+
+                                          BalanceBox(
+                                            customer: customer,
+                                            title: 'Account Balance',
+                                            detail: customer.accountBalance
+                                                .toString(),
+                                          ),
+
+                                          BalanceBox(
+                                            customer: customer,
+                                            title: 'Last Order Date',
+                                            detail: customer.lastOrderDate,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );
