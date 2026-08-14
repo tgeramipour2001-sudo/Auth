@@ -4,5 +4,12 @@ part of 'customer_bloc.dart';
 sealed class CustomerEvent {}
 
 class CustomerStarted extends CustomerEvent {}
+
 class CustomerClicked extends CustomerEvent{}
-class CustomeRefresh extends CustomerEvent{}
+
+class CustomerFilter extends CustomerEvent{
+  final String SearchedField;
+
+  CustomerFilter({required this.SearchedField});
+  
+}

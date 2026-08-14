@@ -11,9 +11,9 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   final ICustomerRepository customerRepository;
   CustomerBloc({required this.customerRepository}) : super(CustomerLoading()) {
     on<CustomerEvent>((event, emit) async {
-      if (event is CustomerStarted || event is CustomeRefresh) {
+      if (event is CustomerStarted) {
         emit(CustomerLoading());
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(Duration(seconds: 1));
         try {
           final customers = await customerRepository.getAll();
           emit(CustomerSuccess(customers: customers));
@@ -24,7 +24,19 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
             ),
           );
         }
-      } else if (event is CustomerClicked) {}
+      } else if (event is CustomerClicked) {
+      } else if (event is CustomerFilter) {
+        emit(CustomerLoading());
+
+        try {
+          final customers = await customerRepository.searchCustomer(
+            event.SearchedField,
+          );
+          emit(CustomerSuccess(customers: customers));
+        } catch (e) {
+          emit(CustomerError(exception: AppExeception(message: e.toString())));
+        }
+      }
     });
   }
 }

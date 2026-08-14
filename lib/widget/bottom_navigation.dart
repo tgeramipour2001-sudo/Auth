@@ -16,21 +16,32 @@ class BottomNavigation extends StatelessWidget {
         boxShadow: [BoxShadow(blurRadius: 3)],
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 8, bottom: 8),
+        padding: const EdgeInsets.only(top: 8, bottom: 12),
         child: const Row(
-          
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BottomNavigationItem(
-              iconFileName: 'setting_icon.png',
-              title: 'setting',
+              iconFileName: 'setting1_icon.png',
+              title: 'Setting',
               activeIconFileName: 'Setting',
             ),
-        
-             BottomNavigationItem(
-              iconFileName: 'setting_icon.png',
-              title: 'customer',
+
+            BottomNavigationItem(
+              iconFileName: 'customer_icon.png',
+              title: 'Customer',
+              activeIconFileName: 'Customer',
+            ),
+
+            BottomNavigationItem(
+              iconFileName: 'order_icon.png',
+              title: 'Order',
+              activeIconFileName: 'Customer',
+            ),
+
+            BottomNavigationItem(
+              iconFileName: 'home_icon.png',
+              title: 'Home',
               activeIconFileName: 'Customer',
             ),
           ],
@@ -39,4 +50,3 @@ class BottomNavigation extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login/ui/customer/customer.dart';
+import 'package:login/ui/Main/mainScreen.dart';
+import 'package:login/ui/customer/customersList.dart';
 import 'package:login/widget/bottom_navigation.dart';
 
 void main() {
@@ -62,16 +63,7 @@ class MyApp extends StatelessWidget {
         ),
         //colorScheme: ColorScheme.light(surface: Color(0xff5882C1)),
       ),
-      home: Stack(
-        children: [
-          Positioned.fill(child: CustomerScreen()),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            left: 0,
-            child: BottomNavigation()),
-        ],
-      ),
+      home: const Mainscreen()
     );
   }
 }

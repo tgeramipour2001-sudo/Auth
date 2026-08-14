@@ -19,8 +19,7 @@ class CustomerRepository implements ICustomerRepository {
   }
 
   @override
-  Future<CustomerEntity> searchCustomer(String name) {
-    // TODO: implement searchCustomer
-    throw UnimplementedError();
+  Future<List<CustomerEntity>> searchCustomer(String name) {
+    return dataSource.searchCustomer(name);
   }
 }
