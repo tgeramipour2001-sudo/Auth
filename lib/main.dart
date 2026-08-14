@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login/ui/Main/mainScreen.dart';
-import 'package:login/ui/customer/customersList.dart';
+import 'package:login/ui/customers/customersList.dart';
 import 'package:login/widget/bottom_navigation.dart';
 
 void main() {

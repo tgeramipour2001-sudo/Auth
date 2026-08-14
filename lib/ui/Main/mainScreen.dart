@@ -5,18 +5,33 @@ import 'package:login/ui/order/orders.dart';
 import 'package:login/ui/setting/setting.dart';
 import 'package:login/widget/bottom_navigation.dart';
 
-class Mainscreen extends StatelessWidget{
+class Mainscreen extends StatefulWidget{
   const Mainscreen({super.key});
 
+  @override
+  State<Mainscreen> createState() => _MainscreenState();
+}
+
+const int homeIndex = 0;
+const int orderIndex = 1;
+const int customerIndex = 2;
+const int settingIndex = 3;
+
+class _MainscreenState extends State<Mainscreen> {
+  int selectedScreenIndex = homeIndex;
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
 
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: BottomNavigation(onTap: (int index) { 
+        setState(() {
+          selectedScreenIndex = index;
+        });
+       },),
       body: IndexedStack(
 
-        index: 0,
+        index: selectedScreenIndex,
         children: [
           HomeScreen(),
           OrdersListScreen(),
