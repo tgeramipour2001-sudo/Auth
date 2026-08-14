@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/data/repository/i_register_repository.dart';
+import 'package:login/ui/Main/mainScreen.dart';
 import 'package:login/ui/home.dart';
 import 'package:login/ui/login/login.dart';
 import 'package:login/ui/register/bloc/register_bloc.dart';
@@ -42,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             if (state is RegisterSuccess) {
               Navigator.of(
                 context,
-              ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+              ).push(MaterialPageRoute(builder: (context) => Mainscreen()));
             } else if (state is RegisterModeChanged) {
               Navigator.of(
                 context,
