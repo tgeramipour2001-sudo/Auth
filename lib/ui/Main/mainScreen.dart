@@ -17,6 +17,7 @@ const int orderIndex = 1;
 const int customerIndex = 2;
 const int settingIndex = 3;
 
+//ناقص هنوز کامل نکردم
 class _MainscreenState extends State<Mainscreen> {
   int selectedScreenIndex = homeIndex;
   @override
