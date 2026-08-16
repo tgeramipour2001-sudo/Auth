@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:login/common/exceprion.dart';
+import 'package:login/common/exception.dart';
 
 
 mixin HttpResponseValidator {
