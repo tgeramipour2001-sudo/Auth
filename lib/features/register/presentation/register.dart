@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/features/register/data/repository/i_register_repository.dart';
 import 'package:login/core/Main/mainScreen.dart';
-import 'package:login/features/home/presentation/home.dart';
 import 'package:login/features/login/presentation/login.dart';
 import 'package:login/features/register/bloc/register_bloc.dart';
 import 'package:login/features/login/widgets/paasword_tetx_field.dart';

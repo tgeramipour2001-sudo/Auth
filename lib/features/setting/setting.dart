@@ -17,7 +17,7 @@ class SettingScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //Text('Sign out'),
-          Container(
+          SizedBox(
             width:  MediaQuery.sizeOf(context).width /2,
             child: ElevatedButton(
               //style: ButtonStyle(maximumSize: ),
