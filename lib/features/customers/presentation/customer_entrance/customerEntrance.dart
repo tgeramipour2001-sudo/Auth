@@ -104,10 +104,38 @@ class CustomerEntranceScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                   SizedBox(height: 5),
+                  SizedBox(height: 5),
                   Divider(color: Colors.white70, indent: 2, endIndent: 2),
                   SizedBox(height: 5),
-                  CustomerMap(latitude: customerEntity.latitude, longitude: customerEntity.longtitude,),
+                  CustomerMap(
+                    latitude: customerEntity.latitude,
+                    longitude: customerEntity.longtitude,
+                  ),
+
+
+                  SizedBox(height: 25,),
+                  //ٍEntrance button
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(child: Expanded(child: Image.asset('assets/icons/customer_icon.png',width: 50,)),),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        width: MediaQuery.of(context).size.width/4.5,
+                        height: 40,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Enter',
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                        ),
+                      ),
+
+                      
+                    ],
+                  ),
                 ],
               ),
             ),
