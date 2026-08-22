@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login/features/customers/presentation/customersList.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/features/customers/bloc/customer_bloc.dart';
+import 'package:login/features/customers/data/repository/customer_repository.dart';
+import 'package:login/features/customers/presentation/customers_list/customersList.dart';
 import 'package:login/features/home/presentation/home.dart';
 import 'package:login/features/orders/orders.dart';
 import 'package:login/features/setting/setting.dart';
@@ -20,17 +23,29 @@ const int settingIndex = 3;
 //ناقص هنوز کامل نکردم
 class _MainscreenState extends State<Mainscreen> {
   int selectedScreenIndex = homeIndex;
+
+  
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
 
+    
+    return Scaffold(
+      
       bottomNavigationBar: BottomNavigation(onTap: (int index) { 
         setState(() {
           selectedScreenIndex = index;
         });
        },),
-      body: IndexedStack(
+      body:
+       BlocProvider<CustomerBloc>(
+        create: (context) {
+          final bloc = CustomerBloc(customerRepository: customerRepository);
+          bloc.add(CustomerStarted());
+          return bloc;
+        },
+      
+       child:IndexedStack(
 
         index: selectedScreenIndex,
         children: [
@@ -40,6 +55,7 @@ class _MainscreenState extends State<Mainscreen> {
           SettingScreen()
         ],
       ),
+    )
     );
   }
 }

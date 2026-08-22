@@ -9,6 +9,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 2450.75,
     "creditBalance": 1200.00,
     "lastOrderDate": "2026-07-30",
+    "image_file_name":"",
+    "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
   {
     "id": 2,
@@ -17,6 +20,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 980.50,
     "creditBalance": 500.00,
     "lastOrderDate": "2026-07-28",
+    "image_file_name":"",
+    "latitude":"43.6532",
+    "longtitude": "-79.3832"
   },
   {
     "id": 3,
@@ -25,6 +31,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 5120.00,
     "creditBalance": 2000.00,
     "lastOrderDate": "2026-07-25",
+    "image_file_name":"",
+    "latitude":"34.0980",
+    "longtitude":  " -118.3267"
   },
   {
     "id": 4,
@@ -33,6 +42,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 350.80,
     "creditBalance": 150.00,
     "lastOrderDate": "2026-07-20",
+    "image_file_name":"",
+    "latitude":"-33.8647",
+    "longtitude":  "151.2069"
   },
   {
     "id": 5,
@@ -41,6 +53,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 7600.00,
     "creditBalance": 3500.00,
     "lastOrderDate": "2026-07-18",
+    "image_file_name":"",
+    "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
   {
     "id": 6,
@@ -49,6 +64,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 1280.30,
     "creditBalance": 700.00,
     "lastOrderDate": "2026-07-15",
+    "image_file_name":"",
+     "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
   {
     "id": 7,
@@ -57,6 +75,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 450.00,
     "creditBalance": 300.00,
     "lastOrderDate": "2026-07-12",
+    "image_file_name":"",
+    "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
   {
     "id": 8,
@@ -65,6 +86,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 2950.90,
     "creditBalance": 1800.00,
     "lastOrderDate": "2026-07-10",
+    "image_file_name":"",
+    "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
   {
     "id": 9,
@@ -73,6 +97,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 620.40,
     "creditBalance": 450.00,
     "lastOrderDate": "2026-07-08",
+    "image_file_name":"",
+    "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
   {
     "id": 10,
@@ -81,6 +108,9 @@ final List<Map<String, dynamic>> customers = [
     "accountBalance": 8420.10,
     "creditBalance": 4000.00,
     "lastOrderDate": "2026-07-05",
+    "image_file_name":"",
+    "latitude":"51.5152",
+    "longtitude":  "-0.1414"
   },
 ];
 
