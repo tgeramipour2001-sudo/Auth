@@ -5,10 +5,13 @@ import 'package:login/features/customers/data/repository/customer_repository.dar
 import 'package:login/features/customers/presentation/customers_list/customersList.dart';
 import 'package:login/features/home/presentation/home.dart';
 import 'package:login/features/orders/orders.dart';
+import 'package:login/features/products/bloc/products_list_bloc.dart';
+import 'package:login/features/products/data/repository/product_list_repository.dart';
+import 'package:login/features/products/presentation/products_list.dart';
 import 'package:login/features/setting/setting.dart';
 import 'package:login/core/widget/bottom_navigation.dart';
 
-class Mainscreen extends StatefulWidget{
+class Mainscreen extends StatefulWidget {
   const Mainscreen({super.key});
 
   @override
@@ -24,38 +27,48 @@ const int settingIndex = 3;
 class _MainscreenState extends State<Mainscreen> {
   int selectedScreenIndex = homeIndex;
 
-  
   @override
   Widget build(BuildContext context) {
-    
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ProductsListBloc>(
+          create: (context) {
+            final ProductsBloc = ProductsListBloc(
+              productListRepository: productListRepository,
+            );
+            ProductsBloc.add(ProductListStarted());
+            return ProductsBloc;
+          },
+        ),
+        BlocProvider<CustomerBloc>(
+          create: (context) {
+            final CustomersBloc = CustomerBloc(
+              customerRepository: customerRepository,
+            );
+            CustomersBloc.add(CustomerStarted());
+            return CustomersBloc;
+          },
+        ),
+      ],
 
-    
-    return Scaffold(
-      
-      bottomNavigationBar: BottomNavigation(onTap: (int index) { 
-        setState(() {
-          selectedScreenIndex = index;
-        });
-       },),
-      body:
-       BlocProvider<CustomerBloc>(
-        create: (context) {
-          final bloc = CustomerBloc(customerRepository: customerRepository);
-          bloc.add(CustomerStarted());
-          return bloc;
-        },
-      
-       child:IndexedStack(
-
-        index: selectedScreenIndex,
-        children: [
-          HomeScreen(),
-          OrdersListScreen(),
-          CustomersListScreen(),
-          SettingScreen()
-        ],
+      child: Scaffold(
+        bottomNavigationBar: BottomNavigation(
+          onTap: (int index) {
+            setState(() {
+              selectedScreenIndex = index;
+            });
+          },
+        ),
+        body: IndexedStack(
+          index: selectedScreenIndex,
+          children: [
+            HomeScreen(),
+            OrdersListScreen(),
+            CustomersListScreen(),
+            SettingScreen(),
+          ],
+        ),
       ),
-    )
     );
   }
 }

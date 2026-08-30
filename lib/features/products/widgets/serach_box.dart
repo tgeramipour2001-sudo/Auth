@@ -1,0 +1,42 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:login/features/products/widgets/serach_bar.dart';
+
+class SearchBoxProductsList extends StatelessWidget {
+  final TextEditingController searchProductController;
+  final ValueChanged<String> searchChanged;
+  const SearchBoxProductsList({
+    super.key,
+    required this.searchChanged,
+    required this.searchProductController,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.sizeOf(context).width - 100,
+      height: 40,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [BoxShadow(blurRadius: 2)],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: SearchBarProductsList(
+              searchProductController: searchProductController,
+              searchChanged: searchChanged,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Icon(CupertinoIcons.search, size: 20, color: Colors.black38),
+          ),
+        ],
+      ),
+    );
+  }
+}

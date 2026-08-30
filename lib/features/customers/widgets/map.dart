@@ -56,7 +56,7 @@ class _CustomerMapState extends State<CustomerMap> {
               userAgentPackageName: 'com.example.login',
               
             ),
-             if (widget.latitude != null && widget.longitude != null)
+             if (widget.longitude != null)
               MarkerLayer(
                 markers: [
                   Marker(

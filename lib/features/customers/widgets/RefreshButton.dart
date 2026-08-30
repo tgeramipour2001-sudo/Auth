@@ -10,13 +10,9 @@ class RefreshButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: onPressed,
-      icon: Icon(
-        CupertinoIcons.refresh_thin,
-        size: 30,
-        color: Colors.white70,
-      ),
+    return InkWell(
+      onTap: onPressed,
+      child: Image.asset('assets/icons/refresh_icon.png', width: 50,),
     );
   }
 }
