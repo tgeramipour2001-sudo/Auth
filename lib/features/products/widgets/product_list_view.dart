@@ -44,7 +44,7 @@ class ProductListView extends StatelessWidget {
                   ],
                 ),
               ),
-              Image.asset('assets/icons/setting_icon.png',width: 180,),
+              Expanded(child: Image.asset('assets/icons/setting_icon.png',width: 180,)),
             ],
           ),
         );

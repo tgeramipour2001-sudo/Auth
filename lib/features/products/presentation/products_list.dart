@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
-import 'package:login/features/products/data/repository/product_list_repository.dart';
 import 'package:login/features/products/widgets/product_list_view.dart';
 import 'package:login/features/products/widgets/refresh_button.dart';
 import 'package:login/features/products/widgets/serach_box.dart';
@@ -46,7 +45,11 @@ class ProductsListScreen extends StatelessWidget {
                       },
                       searchProductController: searchProductController,
                     ),
-                    RefreshButtonProductsList(),
+                    RefreshButtonProductsList(onTap: () {
+                      context.read<ProductsListBloc>().add(
+                          ProductListFilter(searchedTextField: searchProductController.text),
+                        );
+                    },),
                   ],
                 ),
               ),
