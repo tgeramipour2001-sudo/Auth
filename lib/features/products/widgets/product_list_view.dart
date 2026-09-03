@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login/features/products/entity/product.dart';
 import 'package:login/features/products/widgets/product_count_change_box.dart';
@@ -14,7 +13,7 @@ class ProductListView extends StatelessWidget {
     return ListView.builder(
       //padding: EdgeInsets.all(20),
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       itemCount: products.length,
       itemBuilder: (context, index) {
         ProductEntity product = products[index];

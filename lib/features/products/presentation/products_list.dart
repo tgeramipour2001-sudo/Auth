@@ -58,27 +58,30 @@ class ProductsListScreen extends StatelessWidget {
             ),
           ),
       
-          BlocBuilder<ProductsListBloc, ProductsListState>(
-            builder: (context, state) {
-              if (state is ProductListSuccess) {
-                return Stack(
-                  children: [
-                    Positioned.fill(child: ProductListView(products: state.products)),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: ProductListViewBottom()),
-                  ],
-                );
-              } else if (state is ProductListLoading) {
-                return Center(child: CircularProgressIndicator());
-              } else if (state is ProductListError) {
-                return Text(state.exeception.toString());
-              } else {
-                throw Exception();
-              }
-            },
+          Expanded(
+            child: BlocBuilder<ProductsListBloc, ProductsListState>(
+              builder: (context, state) {
+                if (state is ProductListSuccess) {
+                  return Stack(
+                    children: [
+                      Positioned.fill(child: ProductListView(products: state.products)),
+                      Positioned(
+                    
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: ProductListViewBottom()),
+                    ],
+                  );
+                } else if (state is ProductListLoading) {
+                  return Center(child: CircularProgressIndicator());
+                } else if (state is ProductListError) {
+                  return Text(state.exeception.toString());
+                } else {
+                  throw Exception();
+                }
+              },
+            ),
           ),
         ],
       ),
