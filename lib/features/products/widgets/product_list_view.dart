@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login/features/products/entity/product.dart';
+import 'package:login/features/products/widgets/product_count_change_box.dart';
 
 class ProductListView extends StatelessWidget {
   final List<ProductEntity> products;
-  ProductListView({super.key, required this.products});
+  const ProductListView({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ProductListView extends StatelessWidget {
         return Container(
           margin: EdgeInsets.fromLTRB(8, 10, 8, 5),
           width: MediaQuery.sizeOf(context).width,
-          height: 130,
+          height: 205,
 
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
@@ -30,21 +32,40 @@ class ProductListView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(20, 5, 10, 5),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(product.name, style: theme.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
-                    SizedBox(height: 5,),
-                    Text('Unit: ${product.unit}'),
-                    Text('Stock: ${product.stock}'),
-                    Text('Warehouse: ${product.warehouse}')
-                  ],
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(15, 5, 10, 5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        product.name,
+                        style: theme.textTheme.titleLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('Unit: ${product.unit}'),
+                      Text('Stock: ${product.stock}'),
+                      Text('Warehouse: ${product.warehouse}'),
+                      Text('price: ${product.price} '),
+                      Text('discount: ${product.discount} '),
+
+                      SizedBox(height: 6),
+                     ProductCountChangeBox(product: product,)
+                    ],
+                  ),
                 ),
               ),
-              Expanded(child: Image.asset('assets/icons/setting_icon.png',width: 180,)),
+              ClipRRect(
+                child: Image.asset(
+                  product.fileName,
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                ),
+              ),
             ],
           ),
         );

@@ -7,7 +7,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 25,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/img/products/soda.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 2,
@@ -15,7 +18,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 50,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 3,
@@ -23,7 +29,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 18,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/img/products/chips.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 4,
@@ -31,7 +40,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 12,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 5,
@@ -39,7 +51,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 30,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 6,
@@ -47,7 +62,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 40,
-    "warehouse": "North"
+    "warehouse": "North",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 7,
@@ -55,7 +73,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 35,
-    "warehouse": "North"
+    "warehouse": "North",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 8,
@@ -63,7 +84,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 28,
-    "warehouse": "South"
+    "warehouse": "South",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 9,
@@ -71,7 +95,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 20,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 10,
@@ -79,7 +106,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 22,
-    "warehouse": "West"
+    "warehouse": "West",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 11,
@@ -87,7 +117,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 45,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 12,
@@ -95,7 +128,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 32,
-    "warehouse": "North"
+    "warehouse": "North",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 13,
@@ -103,7 +139,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 27,
-    "warehouse": "South"
+    "warehouse": "South",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 14,
@@ -111,7 +150,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 16,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 15,
@@ -119,7 +161,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Liter",
     "unitId": 104,
     "stock": 24,
-    "warehouse": "West"
+    "warehouse": "West",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 16,
@@ -127,7 +172,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Liter",
     "unitId": 104,
     "stock": 38,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 17,
@@ -135,7 +183,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 19,
-    "warehouse": "North"
+    "warehouse": "North",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 18,
@@ -143,7 +194,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 26,
-    "warehouse": "South"
+    "warehouse": "South",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 19,
@@ -151,7 +205,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 42,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 20,
@@ -159,7 +216,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 33,
-    "warehouse": "West"
+    "warehouse": "West",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 21,
@@ -167,7 +227,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 21,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 22,
@@ -175,7 +238,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 15,
-    "warehouse": "North"
+    "warehouse": "North",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 23,
@@ -183,7 +249,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 10,
-    "warehouse": "South"
+    "warehouse": "South",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 24,
@@ -191,7 +260,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 29,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 25,
@@ -199,7 +271,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 17,
-    "warehouse": "West"
+    "warehouse": "West",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 26,
@@ -207,7 +282,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Pack",
     "unitId": 102,
     "stock": 23,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 27,
@@ -215,7 +293,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Kilogram",
     "unitId": 103,
     "stock": 14,
-    "warehouse": "North"
+    "warehouse": "North",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 28,
@@ -223,7 +304,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Bottle",
     "unitId": 101,
     "stock": 11,
-    "warehouse": "South"
+    "warehouse": "South",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 29,
@@ -231,7 +315,10 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Can",
     "unitId": 105,
     "stock": 36,
-    "warehouse": "Center"
+    "warehouse": "Center",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
   },
   {
     "id": 30,
@@ -239,8 +326,11 @@ final List<Map<String, dynamic>> customers = [
     "unit": "Can",
     "unitId": 105,
     "stock": 18,
-    "warehouse": "West"
-  }
+    "warehouse": "West",
+    "file_name": "assets/icons/setting_icon.png",
+    "price": 10,
+    "discount": 0,
+  },
 ];
 
 Response ProductFakeResponse() {

@@ -13,13 +13,13 @@ class ProductListRemoteDataSource
 
   @override
   Future<List<ProductEntity>> getAllProducts() async {
-    final response = await ProductFakeResponse();
+    final response = ProductFakeResponse();
     validatedResponse(response);
 
     List<ProductEntity> products = [];
-    (response.data as List).forEach((value) {
+    for (var value in (response.data as List)) {
       products.add(ProductEntity.fromJson(value));
-    });
+    }
     return products;
   }
 

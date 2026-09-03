@@ -7,7 +7,6 @@ import 'package:login/features/home/presentation/home.dart';
 import 'package:login/features/orders/orders.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/data/repository/product_list_repository.dart';
-import 'package:login/features/products/presentation/products_list.dart';
 import 'package:login/features/setting/setting.dart';
 import 'package:login/core/widget/bottom_navigation.dart';
 
