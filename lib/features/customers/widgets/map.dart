@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:location/location.dart';
-import 'package:login/features/customers/functions/getUserLocation.dart';
 
 class CustomerMap extends StatefulWidget {
   final String latitude;

@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/entity/product.dart';
+import 'package:login/features/products/entity/product_ordered.dart';
 import 'package:login/features/products/functions/decrease_count.dart';
 import 'package:login/features/products/functions/increase_count.dart';
 
@@ -28,6 +31,14 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
           onPressed: () {
             setState(() {
               productCount.text = DeceaseCount(productCount.text, 0);
+              context.read<ProductsListBloc>().add(
+                ProductClicked(
+                  product: ProductOrdered(
+                    widget.product,
+                    int.parse(productCount.text),
+                  ),
+                ),
+              );
             });
           },
           child: Icon(CupertinoIcons.minus, color: Colors.white, size: 15),
@@ -42,6 +53,15 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
               if (count > widget.product.stock) {
                 productCount.text = widget.product.stock.toString();
               }
+
+              context.read<ProductsListBloc>().add(
+                ProductClicked(
+                  product: ProductOrdered(
+                    widget.product,
+                    int.parse(productCount.text),
+                  ),
+                ),
+              );
             },
             controller: productCount,
             keyboardType: TextInputType.numberWithOptions(),
@@ -64,6 +84,15 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
               productCount.text = IncreaseCount(
                 productCount.text,
                 widget.product.stock,
+              );
+
+              context.read<ProductsListBloc>().add(
+                ProductClicked(
+                  product: ProductOrdered(
+                    widget.product,
+                    int.parse(productCount.text),
+                  ),
+                ),
               );
             });
           },

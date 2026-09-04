@@ -3,8 +3,9 @@ import 'package:login/features/products/entity/product.dart';
 import 'package:login/features/products/widgets/product_count_change_box.dart';
 
 class ProductListView extends StatelessWidget {
+ 
   final List<ProductEntity> products;
-  const ProductListView({super.key, required this.products});
+  const ProductListView({super.key, required this.products,});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class ProductListView extends StatelessWidget {
         ProductEntity product = products[index];
         return Container(
           margin: EdgeInsets.fromLTRB(8, 10, 8, 5),
+          padding: EdgeInsets.only(right: 8),
           width: MediaQuery.sizeOf(context).width,
           height: 205,
 
@@ -58,6 +60,7 @@ class ProductListView extends StatelessWidget {
                 ),
               ),
               ClipRRect(
+                borderRadius: BorderRadiusGeometry.circular(8),
                 child: Image.asset(
                   product.fileName,
                   width: 100,

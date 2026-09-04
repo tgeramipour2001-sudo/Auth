@@ -11,3 +11,9 @@ class ProductListFilter extends ProductsListEvent{
 
   ProductListFilter({required this.searchedTextField});
 }
+
+class ProductClicked extends ProductsListEvent{
+  final ProductOrdered product;
+
+  ProductClicked({required this.product});
+}

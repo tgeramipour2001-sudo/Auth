@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/widgets/product_list_view.dart';
 import 'package:login/features/products/widgets/product_list_view_bottom.dart';
@@ -7,8 +8,10 @@ import 'package:login/features/products/widgets/refresh_button.dart';
 import 'package:login/features/products/widgets/serach_box.dart';
 
 class ProductsListScreen extends StatelessWidget {
+  // TotalPrice totalPrice = TotalPrice(0, 0, 0);
+  final CustomerEntity customer;
   TextEditingController searchProductController = TextEditingController();
-  ProductsListScreen({super.key});
+  ProductsListScreen({super.key, required this.customer});
 
   @override
   Widget build(BuildContext context) {
@@ -57,20 +60,25 @@ class ProductsListScreen extends StatelessWidget {
               ],
             ),
           ),
-      
+
           Expanded(
             child: BlocBuilder<ProductsListBloc, ProductsListState>(
               builder: (context, state) {
                 if (state is ProductListSuccess) {
                   return Stack(
                     children: [
-                      Positioned.fill(child: ProductListView(products: state.products)),
+                      Positioned.fill(
+                        child: ProductListView(products: state.products),
+                      ),
                       Positioned(
-                    
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        child: ProductListViewBottom()),
+                        child: ProductListViewBottom(
+                          totalPrice: state.totalPrice,
+                          customer: customer,
+                        ),
+                      ),
                     ],
                   );
                 } else if (state is ProductListLoading) {

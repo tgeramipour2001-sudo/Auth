@@ -129,7 +129,7 @@ class CustomerEntranceScreen extends StatelessWidget {
                             MaterialPageRoute(
                               builder: (_) => BlocProvider.value(
                                 value: productsBloc,
-                                child: ProductsListScreen(),
+                                child: ProductsListScreen(customer: customerEntity,),
                               ),
                             ),
                           );

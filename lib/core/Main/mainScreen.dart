@@ -7,6 +7,7 @@ import 'package:login/features/home/presentation/home.dart';
 import 'package:login/features/orders/orders.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/data/repository/product_list_repository.dart';
+import 'package:login/features/products/entity/total_price.dart';
 import 'package:login/features/setting/setting.dart';
 import 'package:login/core/widget/bottom_navigation.dart';
 
@@ -24,6 +25,7 @@ const int settingIndex = 3;
 
 //ناقص هنوز کامل نکردم
 class _MainscreenState extends State<Mainscreen> {
+  TotalPrice totalPrice = TotalPrice(0, 0, 0);
   int selectedScreenIndex = homeIndex;
 
   @override
@@ -34,6 +36,7 @@ class _MainscreenState extends State<Mainscreen> {
           create: (context) {
             final ProductsBloc = ProductsListBloc(
               productListRepository: productListRepository,
+              totalPrice: totalPrice
             );
             ProductsBloc.add(ProductListStarted());
             return ProductsBloc;
