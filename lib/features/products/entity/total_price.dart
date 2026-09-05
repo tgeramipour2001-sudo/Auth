@@ -3,5 +3,7 @@ class TotalPrice {
   int discountAmount;
   int netPayableAmount;
 
-  TotalPrice(this.grossAmount, this.discountAmount, this.netPayableAmount);
+  int customerId;
+
+  TotalPrice(this.grossAmount, this.discountAmount, this.netPayableAmount, this.customerId);
 }

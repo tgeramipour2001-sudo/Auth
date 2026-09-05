@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/products/entity/product.dart';
 import 'package:login/features/products/widgets/product_count_change_box.dart';
 
 class ProductListView extends StatelessWidget {
- 
   final List<ProductEntity> products;
-  const ProductListView({super.key, required this.products,});
+  final CustomerEntity customer;
+  const ProductListView({
+    super.key,
+    required this.products,
+    required this.customer,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,10 @@ class ProductListView extends StatelessWidget {
                       Text('discount: ${product.discount} '),
 
                       SizedBox(height: 6),
-                     ProductCountChangeBox(product: product,)
+                      ProductCountChangeBox(
+                        product: product,
+                        customer: customer,
+                      ),
                     ],
                   ),
                 ),

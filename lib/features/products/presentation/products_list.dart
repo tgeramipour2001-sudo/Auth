@@ -42,6 +42,7 @@ class ProductsListScreen extends StatelessWidget {
                   searchChanged: (String value) {
                     context.read<ProductsListBloc>().add(
                       ProductListFilter(
+                        customer: customer,
                         searchedTextField: searchProductController.text,
                       ),
                     );
@@ -52,6 +53,7 @@ class ProductsListScreen extends StatelessWidget {
                   onTap: () {
                     context.read<ProductsListBloc>().add(
                       ProductListFilter(
+                        customer: customer,
                         searchedTextField: searchProductController.text,
                       ),
                     );
@@ -68,7 +70,7 @@ class ProductsListScreen extends StatelessWidget {
                   return Stack(
                     children: [
                       Positioned.fill(
-                        child: ProductListView(products: state.products),
+                        child: ProductListView(products: state.products, customer:customer,),
                       ),
                       Positioned(
                         bottom: 0,

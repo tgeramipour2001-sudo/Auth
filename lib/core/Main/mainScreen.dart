@@ -25,7 +25,7 @@ const int settingIndex = 3;
 
 //ناقص هنوز کامل نکردم
 class _MainscreenState extends State<Mainscreen> {
-  TotalPrice totalPrice = TotalPrice(0, 0, 0);
+ // TotalPrice totalPrice = TotalPrice(0, 0, 0);
   int selectedScreenIndex = homeIndex;
 
   @override
@@ -36,7 +36,7 @@ class _MainscreenState extends State<Mainscreen> {
           create: (context) {
             final ProductsBloc = ProductsListBloc(
               productListRepository: productListRepository,
-              totalPrice: totalPrice
+           //   totalPrice: totalPrice
             );
             ProductsBloc.add(ProductListStarted());
             return ProductsBloc;

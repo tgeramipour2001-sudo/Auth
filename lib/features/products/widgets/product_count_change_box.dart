@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/entity/product.dart';
 import 'package:login/features/products/entity/product_ordered.dart';
@@ -9,8 +10,9 @@ import 'package:login/features/products/functions/increase_count.dart';
 
 class ProductCountChangeBox extends StatefulWidget {
   final ProductEntity product;
+  final CustomerEntity customer;
 
-  const ProductCountChangeBox({super.key, required this.product});
+  const ProductCountChangeBox({super.key, required this.product, required this.customer});
 
   @override
   State<ProductCountChangeBox> createState() => _ProductCountChangeBoxState();
@@ -33,6 +35,7 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
               productCount.text = DeceaseCount(productCount.text, 0);
               context.read<ProductsListBloc>().add(
                 ProductClicked(
+                  customer: widget.customer,
                   product: ProductOrdered(
                     widget.product,
                     int.parse(productCount.text),
@@ -56,6 +59,7 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
 
               context.read<ProductsListBloc>().add(
                 ProductClicked(
+                  customer: widget.customer,
                   product: ProductOrdered(
                     widget.product,
                     int.parse(productCount.text),
@@ -88,6 +92,7 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
 
               context.read<ProductsListBloc>().add(
                 ProductClicked(
+                  customer: widget.customer,
                   product: ProductOrdered(
                     widget.product,
                     int.parse(productCount.text),
