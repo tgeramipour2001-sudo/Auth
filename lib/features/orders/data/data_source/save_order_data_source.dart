@@ -12,7 +12,7 @@ class SaveOrderRemoteDataSource
   SaveOrderRemoteDataSource({required this.httpClient});
   @override
   Future<int> saveOrder(Map<int, CustomerOrder> order) async {
-    final response = await saveOrdersToServer(order);
+    final response = saveOrdersToServer(order);
 
     validatedResponse(response);
 

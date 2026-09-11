@@ -5,7 +5,7 @@ import 'package:login/features/orders/bloc/save_order_bloc.dart';
 class Comment extends StatefulWidget {
   final String preComment;
   final int customerId;
-  Comment({super.key, required this.customerId, required this.preComment});
+  const Comment({super.key, required this.customerId, required this.preComment});
 
   @override
   State<Comment> createState() => _CommentState();

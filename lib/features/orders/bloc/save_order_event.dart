@@ -12,9 +12,10 @@ class CommentChanged extends SaveOrderEvent {
 }
 
 class SendOrder extends SaveOrderEvent {
+  final CustomerOrder customerOrder;
   final int customerId;
 
-  SendOrder({required this.customerId});
+  SendOrder({required this.customerId, required this.customerOrder});
 }
 
 class CancelOrder extends SaveOrderEvent {

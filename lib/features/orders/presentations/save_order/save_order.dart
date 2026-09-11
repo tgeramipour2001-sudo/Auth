@@ -133,7 +133,10 @@ class _SaveOrderState extends State<SaveOrder> {
               bottom: 0,
               left: 0,
               right: 0,
-              child: SaveOrderBottom(customerId: widget.customer.id),
+              child: SaveOrderBottom(
+                customerId: widget.customer.id,
+                customerOrder: widget.customerOrder,
+              ),
             ),
           ],
         ),

@@ -1,4 +1,3 @@
-import 'package:login/features/products/entity/customer_order.dart';
 import 'package:login/features/products/entity/product.dart';
 
 abstract class IProductListRepository {
