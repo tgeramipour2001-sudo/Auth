@@ -9,6 +9,7 @@ import 'package:login/features/customers/widgets/CustomerAddressBox.dart';
 import 'package:login/features/customers/widgets/CustomerNameBox.dart';
 import 'package:login/features/customers/widgets/RefreshButton.dart';
 import 'package:login/features/customers/widgets/SearchBox.dart';
+import 'package:login/features/products/bloc/products_list_bloc.dart';
 
 // ignore: must_be_immutable
 class CustomersListScreen extends StatelessWidget {
@@ -56,15 +57,11 @@ class CustomersListScreen extends StatelessWidget {
                     // builder: (context, state) {
                     RefreshButton(
                       onPressed: () {
-                        if (searchCustomerController != '') {
-                          context.read<CustomerBloc>().add(
-                            CustomerFilter(
-                              SearchedField: searchCustomerController.text,
-                            ),
-                          );
-                        } else {
-                          context.read<CustomerBloc>().add(CustomerStarted());
-                        }
+                        context.read<CustomerBloc>().add(
+                          CustomerFilter(
+                            SearchedField: searchCustomerController.text,
+                          ),
+                        );
                       },
                     ),
 
@@ -92,11 +89,15 @@ class CustomersListScreen extends StatelessWidget {
                           child: InkWell(
                             onTap: () {
                               showModalBottomSheet(
-                              
                                 backgroundColor: Colors.white,
                                 context: context,
-                                builder: (context) {
-                                  return CustomerEntranceScreen(customerEntity: customer,);
+                                builder: (_) {
+                                  return BlocProvider.value(
+                                    value: context.read<ProductsListBloc>(),
+                                    child: CustomerEntranceScreen(
+                                      customerEntity: customer,
+                                    ),
+                                  );
                                 },
                               );
                             },

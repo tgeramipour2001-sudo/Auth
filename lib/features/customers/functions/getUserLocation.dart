@@ -26,5 +26,5 @@ Future<void> getUserLocation(LocationData? userLocation, MapController mapContro
     }
 
     userLocation = await location.getLocation();
-    mapController.move(LatLng(userLocation!.latitude, userLocation.longitude), 17);
+    mapController.move(LatLng(userLocation.latitude, userLocation.longitude), 17);
   }

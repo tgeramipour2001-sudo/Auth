@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:login/domain/fake_response_customer.dart';
+import 'package:login/domain/fake_responses/fake_response_customer.dart';
 import 'package:login/common/validator_response.dart';
 import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/customers/data/data_source/i_customer_data_source.dart';

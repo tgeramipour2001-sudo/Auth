@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:location/location.dart';
-import 'package:login/features/customers/functions/getUserLocation.dart';
 
 class CustomerMap extends StatefulWidget {
   final String latitude;
@@ -56,21 +54,20 @@ class _CustomerMapState extends State<CustomerMap> {
               userAgentPackageName: 'com.example.login',
               
             ),
-             if (widget.latitude != null && widget.longitude != null)
-              MarkerLayer(
-                markers: [
-                  Marker(
-                    point: LatLng(double.parse(widget.latitude), double.parse(widget.longitude)),
-                    width: 50,
-                    height: 50,
-                    child: const Icon(
-                      Icons.location_pin,
-                      color: Colors.red,
-                      size: 45,
-                    ),
+             MarkerLayer(
+              markers: [
+                Marker(
+                  point: LatLng(double.parse(widget.latitude), double.parse(widget.longitude)),
+                  width: 50,
+                  height: 50,
+                  child: const Icon(
+                    Icons.location_pin,
+                    color: Colors.red,
+                    size: 45,
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:login/domain/fake_response_auth.dart';
+import 'package:login/domain/fake_responses/fake_response_auth.dart';
 import 'package:login/common/validator_response.dart';
 import 'package:login/features/register/entity/register.dart';
 import 'package:login/features/register/data/data_source/i_register_dat_source.dart';

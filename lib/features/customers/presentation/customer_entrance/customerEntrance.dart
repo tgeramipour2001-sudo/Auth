@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/customers/widgets/BalanceBox.dart';
 import 'package:login/features/customers/widgets/CustomerAddressBox.dart';
 import 'package:login/features/customers/widgets/CustomerNameBox.dart';
 import 'package:login/features/customers/widgets/customerImage.dart';
 import 'package:login/features/customers/widgets/map.dart';
+import 'package:login/features/products/bloc/products_list_bloc.dart';
+import 'package:login/features/products/presentation/products_list.dart';
 
 class CustomerEntranceScreen extends StatelessWidget {
   final CustomerEntity customerEntity;
@@ -104,10 +107,54 @@ class CustomerEntranceScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                   SizedBox(height: 5),
+                  SizedBox(height: 5),
                   Divider(color: Colors.white70, indent: 2, endIndent: 2),
                   SizedBox(height: 5),
-                  CustomerMap(latitude: customerEntity.latitude, longitude: customerEntity.longtitude,),
+                  CustomerMap(
+                    latitude: customerEntity.latitude,
+                    longitude: customerEntity.longtitude,
+                  ),
+
+                  SizedBox(height: 25),
+                  //ٍEntrance button
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          final productsBloc = context.read<ProductsListBloc>();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => BlocProvider.value(
+                                value: productsBloc,
+                                child: ProductsListScreen(customer: customerEntity,),
+                              ),
+                            ),
+                          );
+                        },
+                        child: Expanded(
+                          child: Image.asset(
+                            'assets/icons/order1_icon.png',
+                            width: 60,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        width: MediaQuery.of(context).size.width / 4.5,
+                        height: 40,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Enter',
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
