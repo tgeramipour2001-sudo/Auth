@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login/features/customers/entity/customer.dart';
-import 'package:login/features/products/entity/total_price.dart';
-import 'package:login/features/products/presentation/save_order.dart';
+import 'package:login/features/orders/presentations/save_order/save_order.dart';
+import 'package:login/features/products/entity/customer_order.dart';
+
 
 class ProductListViewBottom extends StatelessWidget {
-  final CustomerEntity customer;
-  final TotalPrice totalPrice;
+  final CustomerOrder customerOrder;
+  final CustomerEntity customerEntity;
   final Color containerColor = Color(0xff204680);
-  ProductListViewBottom({super.key, required this.totalPrice, required this.customer});
+  ProductListViewBottom({super.key, required this.customerOrder, required this.customerEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +30,15 @@ class ProductListViewBottom extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Gross Amount: ${totalPrice.grossAmount}',
+                'Gross Amount: ${customerOrder.totalPrice.grossAmount}',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Text(
-                'Discount: ${totalPrice.discountAmount}',
+                'Discount: ${customerOrder.totalPrice.discountAmount}',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Text(
-                'Net payable: ${totalPrice.netPayableAmount} ',
+                'Net payable: ${customerOrder.totalPrice.netPayableAmount} ',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],
@@ -47,7 +48,7 @@ class ProductListViewBottom extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SaveOrder(customer: customer,)),
+                MaterialPageRoute(builder: (context) => SaveOrder(customer: customerEntity,customerOrder: customerOrder,)),
               );
             },
             child: Icon(CupertinoIcons.forward, size: 32, color: Colors.white),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login/core/Main/mainScreen.dart';
+import 'package:login/core/Main/bootAppStrap.dart';
+import 'package:login/core/Main/injection.dart';
 
 void main() {
+  setupDependencies();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Color(0xff003465),
     statusBarBrightness: Brightness.dark,

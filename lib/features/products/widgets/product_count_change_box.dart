@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/core/Main/injection.dart';
 import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/entity/product.dart';
@@ -33,7 +33,7 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
           onPressed: () {
             setState(() {
               productCount.text = DeceaseCount(productCount.text, 0);
-              context.read<ProductsListBloc>().add(
+              getIt<ProductsListBloc>().add(
                 ProductClicked(
                   customer: widget.customer,
                   product: ProductOrdered(
@@ -57,7 +57,7 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
                 productCount.text = widget.product.stock.toString();
               }
 
-              context.read<ProductsListBloc>().add(
+              getIt<ProductsListBloc>().add(
                 ProductClicked(
                   customer: widget.customer,
                   product: ProductOrdered(
@@ -90,7 +90,7 @@ class _ProductCountChangeBoxState extends State<ProductCountChangeBox> {
                 widget.product.stock,
               );
 
-              context.read<ProductsListBloc>().add(
+              getIt<ProductsListBloc>().add(
                 ProductClicked(
                   customer: widget.customer,
                   product: ProductOrdered(

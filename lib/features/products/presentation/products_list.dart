@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/core/Main/injection.dart';
 import 'package:login/features/customers/entity/customer.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/widgets/product_list_view.dart';
@@ -40,7 +41,7 @@ class ProductsListScreen extends StatelessWidget {
               children: [
                 SearchBoxProductsList(
                   searchChanged: (String value) {
-                    context.read<ProductsListBloc>().add(
+                    getIt<ProductsListBloc>().add(
                       ProductListFilter(
                         customer: customer,
                         searchedTextField: searchProductController.text,
@@ -51,7 +52,7 @@ class ProductsListScreen extends StatelessWidget {
                 ),
                 RefreshButtonProductsList(
                   onTap: () {
-                    context.read<ProductsListBloc>().add(
+                    getIt<ProductsListBloc>().add(
                       ProductListFilter(
                         customer: customer,
                         searchedTextField: searchProductController.text,
@@ -70,15 +71,18 @@ class ProductsListScreen extends StatelessWidget {
                   return Stack(
                     children: [
                       Positioned.fill(
-                        child: ProductListView(products: state.products, customer:customer,),
+                        child: ProductListView(
+                          products: state.products,
+                          customer: customer,
+                        ),
                       ),
                       Positioned(
                         bottom: 0,
                         left: 0,
                         right: 0,
                         child: ProductListViewBottom(
-                          totalPrice: state.totalPrice,
-                          customer: customer,
+                          customerOrder: state.customerOrder,
+                          customerEntity: customer,
                         ),
                       ),
                     ],

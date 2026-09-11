@@ -15,7 +15,7 @@ class ProductListError extends ProductsListState {
 
 class ProductListSuccess extends ProductsListState {
   final List<ProductEntity> products;
-  final TotalPrice totalPrice;
+  final CustomerOrder customerOrder;
 
-  ProductListSuccess({required this.products, required this.totalPrice});
+  ProductListSuccess({required this.products, required this.customerOrder});
 }

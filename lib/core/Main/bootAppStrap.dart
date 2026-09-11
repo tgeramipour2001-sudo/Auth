@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/core/Main/injection.dart';
 import 'package:login/features/customers/bloc/customer_bloc.dart';
 import 'package:login/features/customers/data/repository/customer_repository.dart';
 import 'package:login/features/customers/presentation/customers_list/customersList.dart';
 import 'package:login/features/home/presentation/home.dart';
 import 'package:login/features/orders/orders.dart';
 import 'package:login/features/products/bloc/products_list_bloc.dart';
-import 'package:login/features/products/data/repository/product_list_repository.dart';
-import 'package:login/features/products/entity/total_price.dart';
 import 'package:login/features/setting/setting.dart';
 import 'package:login/core/widget/bottom_navigation.dart';
 
@@ -25,23 +24,14 @@ const int settingIndex = 3;
 
 //ناقص هنوز کامل نکردم
 class _MainscreenState extends State<Mainscreen> {
- // TotalPrice totalPrice = TotalPrice(0, 0, 0);
+  // TotalPrice totalPrice = TotalPrice(0, 0, 0);
   int selectedScreenIndex = homeIndex;
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ProductsListBloc>(
-          create: (context) {
-            final ProductsBloc = ProductsListBloc(
-              productListRepository: productListRepository,
-           //   totalPrice: totalPrice
-            );
-            ProductsBloc.add(ProductListStarted());
-            return ProductsBloc;
-          },
-        ),
+        BlocProvider.value(value: getIt<ProductsListBloc>()),
         BlocProvider<CustomerBloc>(
           create: (context) {
             final CustomersBloc = CustomerBloc(

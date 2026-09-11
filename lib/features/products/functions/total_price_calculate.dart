@@ -15,5 +15,5 @@ TotalPrice TotalPriceCalculate(List<ProductOrdered> products, int customerId){
 
 
 
-  return TotalPrice(grossAmount, discount, netPayabel, customerId);
+  return TotalPrice(grossAmount, discount, netPayabel);
 }
