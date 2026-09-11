@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:login/common/exception.dart';
+import 'package:login/core/Main/injection.dart';
 import 'package:login/features/orders/data/repository/i_save_order_repository.dart';
+import 'package:login/features/products/bloc/products_list_bloc.dart';
 import 'package:login/features/products/entity/customer_order.dart';
 import 'package:meta/meta.dart';
 
@@ -22,6 +24,7 @@ class SaveOrderBloc extends Bloc<SaveOrderEvent, SaveOrderState> {
           };
           final orderId = await saveOrderRepository.saveOrder(order);
           emit(SeveOrderSuccess(orderId: orderId));
+          getIt<ProductsListBloc>().add(ProductListDelete(customerId: event.customerId));
         } catch (e) {
           emit(
             SaveOrderError(

@@ -109,6 +109,14 @@ class ProductsListBloc extends Bloc<ProductsListEvent, ProductsListState> {
           emit(ProductListError(AppExeception(message: e.toString())));
         }
       } 
+
+      else if(event is ProductListDelete){
+        final customerIndex = customersOrder[event.customerId];
+
+        if(customerIndex != null){
+          customersOrder.remove(event.customerId);
+        }
+      }
     });
   }
 }

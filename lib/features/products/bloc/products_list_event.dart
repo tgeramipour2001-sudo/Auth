@@ -23,3 +23,9 @@ class ProductClicked extends ProductsListEvent {
   ProductClicked({required this.product, required this.customer});
 }
 
+class ProductListDelete extends ProductsListEvent{
+  final int customerId;
+
+  ProductListDelete({required this.customerId});
+
+}
