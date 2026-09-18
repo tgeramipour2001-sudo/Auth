@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login/core/Main/bootAppStrap.dart';
-import 'package:login/core/Main/injection.dart';
+import 'package:login/core/Startup/AppBootStrap.dart';
+import 'package:login/core/Startup/injection.dart';
 
 void main() {
   setupDependencies();
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
         ),
         //colorScheme: ColorScheme.light(surface: Color(0xff5882C1)),
       ),
-      home: const Mainscreen()
+      home: const AppBootStrap()
     );
   }
 }
