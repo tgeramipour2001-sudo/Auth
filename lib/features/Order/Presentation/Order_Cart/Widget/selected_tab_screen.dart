@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:login/Features/Order/Domain/Entity/Order_Cart_Entity/cart_entity.dart';
-import 'package:login/Features/Order/Presentation/Order_Cart/Widget/comment.dart';
-import 'package:login/Features/Order/Presentation/Order_Cart/Widget/invoice.dart';
-import 'package:login/Features/Order/Presentation/Order_Cart/Widget/order_items.dart';
+import 'package:login/features/order/domain/entity/order_cart_entity/cart_entity.dart';
+import 'package:login/features/order/presentation/order_cart/widget/comment.dart';
+import 'package:login/features/order/presentation/order_cart/widget/invoice.dart';
+import 'package:login/features/order/presentation/order_cart/widget/order_items.dart';
 
 Widget selectedTabScreen(int index, CartEntity order, int customerId) {
   switch (index) {

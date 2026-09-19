@@ -1,4 +1,5 @@
-import 'package:login/Features/Order/Domain/Entity/Order_Cart_Entity/cart_entity.dart';
+
+import 'package:login/features/order/domain/entity/order_cart_entity/cart_entity.dart';
 
 abstract class IOrderCartRepository {
    Future<int> saveOrder(Map<int, CartEntity> order);

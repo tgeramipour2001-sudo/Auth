@@ -1,7 +1,6 @@
 
 
-
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
 
 List<CustomerEntity> filterCustomers(
   String searchedField,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
 
 // ignore: must_be_immutable
 class CustomerAddressBox extends StatelessWidget {

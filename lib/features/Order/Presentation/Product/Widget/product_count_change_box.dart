@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:login/Features/Order/Domain/Entity/Product_Entity/cart_item_entity.dart';
-import 'package:login/Features/Order/Domain/Entity/Product_Entity/product_entity.dart';
-import 'package:login/Features/Order/Presentation/Bloc/Product/products_list_bloc.dart';
-import 'package:login/Features/Order/Presentation/Product/Logic/decrease_count.dart';
-import 'package:login/Features/Order/Presentation/Product/Logic/increase_count.dart';
-import 'package:login/core/Startup/injection.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
+import 'package:login/core/startup/injection.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
+import 'package:login/features/order/domain/entity/product_entity/cart_item_entity.dart';
+import 'package:login/features/order/domain/entity/product_entity/product_entity.dart';
+import 'package:login/features/order/presentation/bloc/product/products_list_bloc.dart';
+import 'package:login/features/order/presentation/product/logic/decrease_count.dart';
+import 'package:login/features/order/presentation/product/logic/increase_count.dart';
+
 
 class ProductCountChangeBox extends StatefulWidget {
   final ProductEntity product;

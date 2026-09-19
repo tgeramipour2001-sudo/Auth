@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
-import 'package:login/Features/Order/Domain/Entity/Product_Entity/product_entity.dart';
-import 'package:login/Features/Order/Presentation/Product/Widget/product_count_change_box.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
+import 'package:login/features/order/domain/entity/product_entity/product_entity.dart';
+import 'package:login/features/order/presentation/product/widget/product_count_change_box.dart';
+
 
 
 class ProductListView extends StatelessWidget {

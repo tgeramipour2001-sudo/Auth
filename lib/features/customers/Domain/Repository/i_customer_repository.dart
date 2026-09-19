@@ -1,4 +1,4 @@
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
 
 abstract class ICustomerRepository {
   Future<List<CustomerEntity>> getAll();

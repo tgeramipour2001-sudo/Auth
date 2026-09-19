@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/Core/Customer/Widget/balance_box.dart';
-import 'package:login/Core/Customer/Widget/customer_address_box.dart';
-import 'package:login/Core/Customer/Widget/customer_name_box.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
-import 'package:login/Features/Customers/Presentation/Customer_Entrance/Widget/customer_image.dart';
-import 'package:login/Features/Customers/Presentation/Customer_Entrance/Widget/map.dart';
-import 'package:login/Features/Order/Presentation/Bloc/Product/products_list_bloc.dart';
-import 'package:login/Features/Order/Presentation/Product/Screen/products_list.dart';
+import 'package:login/core/customer/widget/balance_box.dart';
+import 'package:login/core/customer/widget/customer_address_box.dart';
+import 'package:login/core/customer/widget/customer_name_box.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
+import 'package:login/features/customers/presentation/customer_entrance/widget/customer_image.dart';
+import 'package:login/features/customers/presentation/customer_entrance/widget/map.dart';
+import 'package:login/features/order/presentation/bloc/product/products_list_bloc.dart';
+import 'package:login/features/order/presentation/product/screen/products_list.dart';
+
 
 class CustomerEntranceScreen extends StatelessWidget {
   final CustomerEntity customerEntity;

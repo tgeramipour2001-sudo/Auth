@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:login/Core/error/exception.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
+import 'package:login/core/error/exception.dart';
+import 'package:login/features/customers/data/repository/customer_repository.dart';
 
-import 'package:login/Features/Customers/Data/repository/customer_repository.dart';
+
+
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
 import 'package:meta/meta.dart';
 
 part 'customer_event.dart';

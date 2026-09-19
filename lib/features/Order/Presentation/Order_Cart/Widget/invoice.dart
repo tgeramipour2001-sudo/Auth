@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login/Features/Order/Domain/Entity/Order_Cart_Entity/cart_entity.dart';
+import 'package:login/features/order/domain/entity/order_cart_entity/cart_entity.dart';
+
 
 class Invoice extends StatelessWidget {
   final CartEntity customerOrder;

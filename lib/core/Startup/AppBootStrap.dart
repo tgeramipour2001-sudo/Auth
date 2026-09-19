@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/Features/Order/Presentation/Bloc/Product/products_list_bloc.dart';
-import 'package:login/Features/Order/Presentation/Order_List/Screen/orders.dart';
-import 'package:login/Features/Setting/Presentation/setting.dart';
-import 'package:login/core/Startup/injection.dart';
+import 'package:login/core/startup/injection.dart';
 import 'package:login/core/widget/bottom_navigation.dart';
-import 'package:login/Features/Customers/Data/repository/customer_repository.dart';
-import 'package:login/Features/Customers/Presentation/Bloc/customer_bloc.dart';
-import 'package:login/Features/Customers/Presentation/Customers_List/Screen/customers_list.dart';
-import 'package:login/Features/Dashboard/presentation/home.dart';
+import 'package:login/features/customers/data/repository/customer_repository.dart';
+import 'package:login/features/customers/presentation/bloc/customer_bloc.dart';
+import 'package:login/features/customers/presentation/customers_list/screen/customers_list.dart';
+import 'package:login/features/dashboard/presentation/home.dart';
+import 'package:login/features/order/presentation/bloc/product/products_list_bloc.dart';
+import 'package:login/features/order/presentation/order_list/screen/orders.dart';
+import 'package:login/features/setting/presentation/setting.dart';
+
 
 class AppBootStrap extends StatefulWidget {
   const AppBootStrap({super.key});

@@ -3,15 +3,16 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/Core/Customer/Widget/balance_box.dart';
-import 'package:login/Core/Customer/Widget/customer_address_box.dart';
-import 'package:login/Core/Customer/Widget/customer_name_box.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
-import 'package:login/Features/Customers/Presentation/Bloc/customer_bloc.dart';
-import 'package:login/Features/Customers/Presentation/Customer_Entrance/Screen/customer_entrance.dart';
-import 'package:login/Features/Customers/Presentation/Customers_List/Widget/refresh_button.dart';
-import 'package:login/Features/Customers/Presentation/Customers_List/Widget/search_box.dart';
-import 'package:login/Features/Order/Presentation/Bloc/Product/products_list_bloc.dart';
+import 'package:login/core/customer/widget/balance_box.dart';
+import 'package:login/core/customer/widget/customer_address_box.dart';
+import 'package:login/core/customer/widget/customer_name_box.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
+import 'package:login/features/customers/presentation/bloc/customer_bloc.dart';
+import 'package:login/features/customers/presentation/customer_entrance/screen/customer_entrance.dart';
+import 'package:login/features/customers/presentation/customers_list/widget/refresh_button.dart';
+import 'package:login/features/customers/presentation/customers_list/widget/search_box.dart';
+import 'package:login/features/order/presentation/bloc/product/products_list_bloc.dart';
+
 
 class CustomersListScreen extends StatelessWidget {
   TextEditingController searchCustomerController = TextEditingController();

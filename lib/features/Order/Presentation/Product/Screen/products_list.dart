@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
-import 'package:login/Features/Order/Presentation/Bloc/Product/products_list_bloc.dart';
-import 'package:login/Features/Order/Presentation/Product/Widget/product_list_view.dart';
-import 'package:login/Features/Order/Presentation/Product/Widget/product_list_view_bottom.dart';
-import 'package:login/Features/Order/Presentation/Product/Widget/refresh_button.dart';
-import 'package:login/Features/Order/Presentation/Product/Widget/serach_box.dart';
-import 'package:login/core/Startup/injection.dart';
+
+import 'package:login/core/startup/injection.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
+import 'package:login/features/order/presentation/bloc/product/products_list_bloc.dart';
+import 'package:login/features/order/presentation/product/widget/product_list_view.dart';
+import 'package:login/features/order/presentation/product/widget/product_list_view_bottom.dart';
+import 'package:login/features/order/presentation/product/widget/refresh_button.dart';
+import 'package:login/features/order/presentation/product/widget/serach_box.dart';
 
 
 class ProductsListScreen extends StatelessWidget {

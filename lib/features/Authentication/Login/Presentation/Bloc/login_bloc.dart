@@ -4,7 +4,8 @@ import 'package:login/Core/error/exception.dart';
 import 'package:login/Core/error/validator_response.dart';
 
 import 'package:login/features/Authentication/Login/Domain/Repository/i_login_repository.dart';
-import 'package:login/features/Authentication/Register/Presentation/Function/password_validator_register.dart';
+import 'package:login/features/authentication/register/presentation/logic/password_validator_register.dart';
+
 
 
 part 'login_event.dart';

@@ -1,14 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:login/Core/Error/exception.dart';
-import 'package:login/Features/Order/Domain/Entity/Order_Cart_Entity/cart_entity.dart';
-import 'package:login/Features/Order/Domain/Entity/Order_Cart_Entity/total_price_entity.dart';
-import 'package:login/Features/Order/Domain/Entity/Product_Entity/cart_item_entity.dart';
-import 'package:login/Features/Order/Domain/Entity/Product_Entity/product_entity.dart';
-import 'package:login/Features/Order/Domain/Repository/i_product_list_repository.dart';
-import 'package:login/Features/Order/Presentation/Product/Logic/product_search.dart';
-import 'package:login/Features/Order/Presentation/Product/Logic/total_price_calculate.dart';
-
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
+import 'package:login/core/error/exception.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
+import 'package:login/features/order/domain/entity/order_cart_entity/cart_entity.dart';
+import 'package:login/features/order/domain/entity/order_cart_entity/total_price_entity.dart';
+import 'package:login/features/order/domain/entity/product_entity/cart_item_entity.dart';
+import 'package:login/features/order/domain/entity/product_entity/product_entity.dart';
+import 'package:login/features/order/domain/repository/i_product_list_repository.dart';
+import 'package:login/features/order/presentation/product/logic/product_search.dart';
+import 'package:login/features/order/presentation/product/logic/total_price_calculate.dart';
 import 'package:meta/meta.dart';
 
 part 'products_list_event.dart';

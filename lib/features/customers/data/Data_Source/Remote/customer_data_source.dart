@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:login/Core/Customer/Function/filter_customers.dart';
-import 'package:login/Core/error/validator_response.dart';
-import 'package:login/Features/Customers/Domain/Entity/customer_entity.dart';
-
-import 'package:login/Features/Customers/Data/Data_Source/Mock/fake_response_customer.dart';
+import 'package:login/core/customer/logic/filter_customers.dart';
+import 'package:login/core/error/validator_response.dart';
+import 'package:login/features/customers/data/data_source/mock/fake_response_customer.dart';
+import 'package:login/features/customers/domain/entity/customer_entity.dart';
 
 class CustomerRemoteDataSource with HttpResponseValidator {
   final Dio httpClient;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login/core/Startup/AppBootStrap.dart';
-import 'package:login/core/Startup/injection.dart';
+import 'package:login/core/startup/AppBootStrap.dart';
+import 'package:login/core/startup/injection.dart';
 
 void main() {
   setupDependencies();
