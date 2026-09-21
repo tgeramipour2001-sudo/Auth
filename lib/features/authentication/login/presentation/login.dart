@@ -1,11 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/core/Authentication/widget/paasword_tetx_field.dart';
-import 'package:login/core/Authentication/widget/usename_text-field.dart';
-import 'package:login/core/Startup/AppBootStrap.dart';
-import 'package:login/features/Authentication/Login/Domain/Repository/i_login_repository.dart';
-import 'package:login/features/Authentication/Login/Presentation/bloc/login_bloc.dart';
-import 'package:login/features/Authentication/register/Presentation/register.dart';
+import 'package:login/core/authentication/widget/paasword_tetx_field.dart';
+import 'package:login/core/authentication/widget/usename_text-field.dart';
+import 'package:login/core/startup/app_bootstrap.dart';
+import 'package:login/features/authentication/login/domain/repository/i_login_repository.dart';
+import 'package:login/features/authentication/login/presentation/bloc/login_bloc.dart';
+import 'package:login/features/authentication/register/presentation/register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login/features/Authentication/Login/Domain/Repository/i_login_repository.dart';
-import 'package:login/features/Authentication/Login/presentation/login.dart';
+import 'package:login/features/authentication/login/domain/repository/i_login_repository.dart';
+import 'package:login/features/authentication/login/presentation/login.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

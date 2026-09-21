@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:login/Core/error/validator_response.dart';
 import 'package:login/Features/Authentication/Login/Data/Data_Source/Mock/fake_response_auth.dart';
-
-import 'package:login/features/Authentication/Login/Domain/Entity/login_entity.dart';
+import 'package:login/features/authentication/login/domain/entity/login_entity.dart';
 
 
 

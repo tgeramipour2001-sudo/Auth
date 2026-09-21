@@ -1,8 +1,9 @@
-import 'package:flutter/widgets.dart';
+
+import 'package:flutter/material.dart';
 import 'package:login/core/authentication/logic/save_token.dart';
-import 'package:login/features/Authentication/Login/Data/Data_Source/Remote/login_data_source.dart';
-import 'package:login/features/Authentication/Login/Domain/Entity/login_entity.dart';
-import 'package:login/features/Authentication/Login/Domain/Repository/i_login_repository.dart';
+import 'package:login/features/authentication/login/data/data_source/remote/login_data_source.dart';
+import 'package:login/features/authentication/login/domain/entity/login_entity.dart';
+import 'package:login/features/authentication/login/domain/repository/i_login_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginRepository with SaveToken implements ILoginRepository {

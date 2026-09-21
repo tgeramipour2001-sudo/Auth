@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:login/Core/error/validator_response.dart';
 import 'package:login/Features/Authentication/Login/Data/Data_Source/Mock/fake_response_auth.dart';
+import 'package:login/features/authentication/register/domain/entity/register_entity.dart';
 
-import 'package:login/features/Authentication/Register/Domain/Entity/register_entity.dart';
 
 class RegisterRemoteDataSource with HttpResponseValidator {
   final Dio httpClient;

@@ -1,17 +1,15 @@
-  //save token
-  import 'package:login/features/Authentication/Login/Domain/Entity/login_entity.dart';
+//save token
 
+import 'package:login/features/authentication/login/domain/entity/login_entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 mixin SaveToken {
-Future<void> persistLoginTokens(LoginEntity loginInfo) async {
+  Future<void> persistLoginTokens(LoginEntity loginInfo) async {
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
 
     sharedPreferences.setString("access_token", loginInfo.accessToken);
     sharedPreferences.setString("refresh_token", loginInfo.refreshToken);
-    
   }
 
   Future<void> loadAuthInfo(dynamic loginChangeNotifier) async {

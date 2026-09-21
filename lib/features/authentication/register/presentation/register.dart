@@ -1,15 +1,11 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/core/Authentication/widget/paasword_tetx_field.dart';
 import 'package:login/core/Authentication/widget/usename_text-field.dart';
-import 'package:login/core/Startup/AppBootStrap.dart';
-import 'package:login/features/Authentication/Login/presentation/login.dart';
-import 'package:login/features/Authentication/Register/Domain/Repository/i_register_repository.dart';
+import 'package:login/core/startup/app_bootstrap.dart';
 import 'package:login/features/Authentication/Register/Presentation/bloc/register_bloc.dart';
-
-
+import 'package:login/features/authentication/login/presentation/login.dart';
+import 'package:login/features/authentication/register/domain/repository/i_register_repository.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

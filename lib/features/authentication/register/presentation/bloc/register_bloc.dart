@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:login/Core/error/exception.dart';
 import 'package:login/Core/error/validator_response.dart';
 
-import 'package:login/features/Authentication/Register/Domain/Repository/i_register_repository.dart';
+import 'package:login/features/authentication/register/domain/repository/i_register_repository.dart';
 import 'package:login/features/authentication/register/presentation/logic/password_validator_register.dart';
 
 
