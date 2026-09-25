@@ -3,14 +3,11 @@ part of 'register_bloc.dart';
 sealed class RegisterEvent {}
 
 class RegisterButtonClicked extends RegisterEvent {
-  final String Emial;
-  final String password;
+  final RegisterEntity registerEntity;
 
-  RegisterButtonClicked({required this.Emial, required this.password});
+  RegisterButtonClicked({required this.registerEntity});
 }
 
-class RegisterModeChangedIsClicked extends RegisterEvent{
+class RegisterModeChangedIsClicked extends RegisterEvent {}
 
-}
-
-class RegisterStarted extends RegisterEvent{}
+class RegisterStarted extends RegisterEvent {}

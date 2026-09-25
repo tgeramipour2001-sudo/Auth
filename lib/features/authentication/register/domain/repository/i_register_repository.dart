@@ -1,12 +1,5 @@
-
-import 'package:login/Core/Http_Client/http_client.dart';
-import 'package:login/features/Authentication/Register/Data/Data_Source/Remote/register_data_source.dart';
-import 'package:login/features/Authentication/register/data/repository/register_repository.dart';
-
-final RegisterRepository registerRepository = RegisterRepository(
-  dataSource: RegisterRemoteDataSource(httpClient: httpClient),
-);
+import 'package:login/features/authentication/register/domain/entity/register_entity.dart';
 
 abstract class IRegisterRepository {
-  Future<void> register(String email, String password);
+  Future<void> register(RegisterEntity registerEntity);
 }

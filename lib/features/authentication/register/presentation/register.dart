@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/core/Authentication/widget/paasword_tetx_field.dart';
-import 'package:login/core/Authentication/widget/usename_text-field.dart';
+import 'package:login/core/Startup/injection.dart';
+import 'package:login/core/authentication/widget/paasword_tetx_field.dart';
+import 'package:login/core/authentication/widget/remember_me_check_box.dart';
+import 'package:login/core/authentication/widget/usename_text-field.dart';
 import 'package:login/core/startup/app_bootstrap.dart';
-import 'package:login/features/Authentication/Register/Presentation/bloc/register_bloc.dart';
+import 'package:login/features/authentication/Register/Presentation/bloc/register_bloc.dart';
 import 'package:login/features/authentication/login/presentation/login.dart';
-import 'package:login/features/authentication/register/domain/repository/i_register_repository.dart';
+import 'package:login/features/authentication/register/domain/entity/register_entity.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -15,27 +17,23 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool saveInfo = false;
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController usernameController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
-    @override
-    void dispose() {
-      usernameController.dispose();
-      passwordController.dispose();
-      super.dispose();
-    }
-
     final theme = Theme.of(context);
     return Scaffold(
       body: BlocProvider<RegisterBloc>(
-        create: (context) {
-          final bloc = RegisterBloc(repository: registerRepository);
-          bloc.add(RegisterStarted());
-          return bloc;
-        },
-
+        create: (context) => getIt<RegisterBloc>(),
         child: BlocListener<RegisterBloc, RegisterState>(
           listener: (context, state) {
             if (state is RegisterSuccess) {
@@ -48,6 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ).push(MaterialPageRoute(builder: (context) => LoginScreen()));
             }
           },
+
           child: SingleChildScrollView(
             child: Container(
               width: MediaQuery.sizeOf(context).width,
@@ -97,15 +96,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 if (state is RegisterError)
                                   Text(state.exeception.message.toString()),
 
+                                //remember me check box
+                                RememberMe(
+                                  saveInfoChanged: (value) {
+                                    setState(() {
+                                      saveInfo = value;
+                                    });
+                                  },
+                                ),
                                 //forget password button
                                 SizedBox(height: 20),
                                 //sign in button
                                 ElevatedButton(
                                   onPressed: () {
-                                    context.read<RegisterBloc>().add(
+                                    getIt<RegisterBloc>().add(
                                       RegisterButtonClicked(
-                                        Emial: usernameController.text,
-                                        password: passwordController.text,
+                                        registerEntity: RegisterEntity(
+                                          username: usernameController.text,
+                                          password: passwordController.text,
+                                          saveInfo: saveInfo,
+                                        ),
                                       ),
                                     );
                                   },
@@ -125,33 +135,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                         //SizedBox(height: 150),
                         const Spacer(),
-                        BlocBuilder<RegisterBloc, RegisterState>(
-                          builder: (context, state) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Have an account?',
-                                  style: theme.textTheme.titleSmall,
-                                ),
-                                SizedBox(width: 12),
-                                Positioned(
-                                  bottom: 0,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      BlocProvider.of<RegisterBloc>(
-                                        context,
-                                      ).add(RegisterModeChangedIsClicked());
-                                    },
-                                    child: Text(
-                                      'Login',
-                                      style: theme.textTheme.titleSmall,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Have an account?',
+                              style: theme.textTheme.titleSmall,
+                            ),
+                            SizedBox(width: 12),
+                            GestureDetector(
+                              onTap: () {
+                                getIt<RegisterBloc>().add(
+                                  RegisterModeChangedIsClicked(),
+                                );
+                              },
+                              child: Text(
+                                'Login',
+                                style: theme.textTheme.titleSmall,
+                              ),
+                            ),
+                          ],
                         ),
 
                         //register
